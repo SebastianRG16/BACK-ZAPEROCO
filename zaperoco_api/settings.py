@@ -71,6 +71,17 @@ MIDDLEWARE = [
     # 'channels.middleware.WebSocketMiddleware',
 ]
 
+if not DEBUG:
+    # ... configuraciones para producción ...
+    CHANNEL_LAYERS = {
+        "default": {
+            "BACKEND": "channels.layers.RedisChannelLayer",
+            "CONFIG": {
+                "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+            },
+        },
+    }
+
 ROOT_URLCONF = 'zaperoco_api.urls'
 
 TEMPLATES = [
