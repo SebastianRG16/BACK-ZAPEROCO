@@ -76,9 +76,9 @@ if not DEBUG:
     CHANNEL_LAYERS = {
         "default": {
             "BACKEND": "channels.layers.RedisChannelLayer",
-            "CONFIG": {
-                "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
-            },
+            # "CONFIG": {
+            #     "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+            # },
         },
     }
 
