@@ -7,5 +7,3 @@ pip install -r requirements.txt
 python manage.py collectstatic --no-input
 python manage.py makemigrations
 python manage.py migrate
-
-gunicorn zaperoco_api.wsgi:application -c gunicorn_config.py
