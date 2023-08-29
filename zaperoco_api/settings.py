@@ -80,9 +80,10 @@ if not DEBUG:
             # "BACKEND": "channels.layers.RedisChannelLayer",
             # "BACKEND": "asgi_redis.RedisChannelLayer",
             "BACKEND": "channels_redis.core.RedisChannelLayer",
-            # "CONFIG": {
-            #     "hosts": [os.environ.get('REDIS_URL')],
-            # },
+            "CONFIG": {
+                "hosts": [os.environ.get('REDIS_URL')],
+            },
+            "ROUTING":"consultas.url.websocket_urlpatterns",
         },
     }
 

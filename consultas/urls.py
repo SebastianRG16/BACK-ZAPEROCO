@@ -9,7 +9,7 @@ router.register(r'donation', views.DonationView, 'donation')
 
 # Configuración de las rutas WebSocket
 websocket_urlpatterns = [
-    re_path(r'ws/some_path/$', consumers.DonationConsumer.as_asgi()),
+    path(r'ws/some_path/', consumers.DonationConsumer.as_asgi()),
 ]
 
 # Rutas totales para las rutas HTTP
