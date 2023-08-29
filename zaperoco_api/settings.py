@@ -78,7 +78,8 @@ if not DEBUG:
         "default": {
             # "BACKEND": "channels.layers.RedisChannelLayer",
             # "BACKEND": "asgi_redis.RedisChannelLayer",
-            "BACKEND": "channels_redis.core.RedisChannelLayer",
+            # "BACKEND": "channels_redis.core.RedisChannelLayer",
+            "BACKEND": "channels.layers.InMemoryChannelLayer",
             "CONFIG": {
                 "hosts": [os.environ.get('REDIS_URL')],
             },
