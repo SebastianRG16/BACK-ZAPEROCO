@@ -74,7 +74,6 @@ MIDDLEWARE = [
 ]
 
 if not DEBUG:
-    # ... configuraciones para producción ...
     CHANNEL_LAYERS = {
         "default": {
             # "BACKEND": "channels.layers.RedisChannelLayer",
@@ -83,7 +82,6 @@ if not DEBUG:
             "CONFIG": {
                 "hosts": [os.environ.get('REDIS_URL')],
             },
-            "ROUTING":"consultas.urls.websocket_urlpatterns",
         },
     }
 
