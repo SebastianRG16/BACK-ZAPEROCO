@@ -83,7 +83,7 @@ if not DEBUG:
             "CONFIG": {
                 "hosts": [os.environ.get('REDIS_URL')],
             },
-            "ROUTING":"consultas.url.websocket_urlpatterns",
+            "ROUTING":"consultas.urls.websocket_urlpatterns",
         },
     }
 
