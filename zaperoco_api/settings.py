@@ -77,9 +77,11 @@ if not DEBUG:
     # ... configuraciones para producción ...
     CHANNEL_LAYERS = {
         "default": {
-            "BACKEND": "channels.layers.RedisChannelLayer",
+            # "BACKEND": "channels.layers.RedisChannelLayer",
+            # "BACKEND": "asgi_redis.RedisChannelLayer",
+            "BACKEND": "channels_redis.core.RedisChannelLayer",
             # "CONFIG": {
-            #     "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+            #     "hosts": [os.environ.get('REDIS_URL')],
             # },
         },
     }
@@ -89,7 +91,7 @@ ROOT_URLCONF = 'zaperoco_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -152,9 +154,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'staticfiles'),
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
