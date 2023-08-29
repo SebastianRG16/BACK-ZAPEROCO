@@ -80,9 +80,9 @@ if not DEBUG:
             # "BACKEND": "asgi_redis.RedisChannelLayer",
             # "BACKEND": "channels_redis.core.RedisChannelLayer",
             "BACKEND": "channels.layers.InMemoryChannelLayer",
-            "CONFIG": {
-                "hosts": [os.environ.get('REDIS_URL')],
-            },
+            # "CONFIG": {
+            #     "hosts": [os.environ.get('REDIS_URL')],
+            # },
         },
     }
 
