@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'coreapi',
     'channels',
     'consultas',
+    'preregistro',
 ]
 
 ASGI_APPLICATION = 'zaperoco_api.asgi.application'

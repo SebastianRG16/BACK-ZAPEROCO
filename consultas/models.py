@@ -5,10 +5,23 @@ from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
 
 class Donation(models.Model):
-    name = models.CharField(max_length=50)
-    tipe_donation = models.CharField(max_length=50)
-    tipe_user = models.CharField(max_length=50)
-    donation = models.BooleanField(default=False)
+
+    DONATION_CHOICES = [
+        ('urna', 'Urna'),
+        ('electrónico', 'Electrónico'),
+    ]
+
+    USER_CHOICES = [
+        ('asisitente', 'Asistente'),
+        ('especial', 'Invitado especial'),
+    ]
+
+    name = models.CharField(max_length=100)
+    lastName = models.CharField(max_length=100)
+    card = models.CharField(max_length=50)
+    celphone = models.CharField(max_length=50)
+    tipe_donation = models.CharField(max_length=20 , choices=DONATION_CHOICES)
+    tipe_user = models.CharField(max_length=50, choices=USER_CHOICES)
 
     def __str__(self):
         return self.name

@@ -14,8 +14,8 @@ websocket_urlpatterns = [
 
 # Rutas totales para las rutas HTTP
 urlpatterns = [
-    path("", include(router.urls)),
-    path("docs/", include_docs_urls(title="Donacion API"))
+    path("donation/", include(router.urls)),
+    # path("docs/donation", include_docs_urls(title="Donacion API"))
 ]
 
 # Agregar las rutas WebSocket a las rutas totales
