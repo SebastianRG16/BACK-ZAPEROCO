@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
+# import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
     'coreapi',
     'channels',
     'consultas',
@@ -112,10 +113,18 @@ WSGI_APPLICATION = 'zaperoco_api.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600
-    )
+    # 'default': dj_database_url.config(
+    #     default='sqlite:///db.sqlite3',
+    #     conn_max_age=600
+    # )
+    'default': {
+		'ENGINE': 'django.db.backends.postgresql_psycopg2',
+		'NAME' : 'zaperoco',
+		'USER' : 'sebastian',
+		'PASSWORD' : '1234Garzon',
+		'HOST' : 'zaperoco.postgres.database.azure.com', 
+		'PORT' : '5432',
+	}
 }
 
 
@@ -176,4 +185,10 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework.authentication.TokenAuthentication',
+    # ),
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ),
 }

@@ -17,12 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.documentation import include_docs_urls
+from rest_framework.authtoken import views
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('consultas.urls')),
     path('', include('preregistro.urls')),
-    path("docs/" , include_docs_urls(title = 'Zaperoco API'))
-
+    path('', include('authentication.urls')),
+    path('generate_token/', views.obtain_auth_token),
+    path("docs/" , include_docs_urls(title = 'Zaperoco API')),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
