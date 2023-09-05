@@ -6,5 +6,5 @@ python -m pip install -U pip
 
 pip install -r requirements.txt
 
-pyhton manage.py collectstatic --no-input
+# python manage.py makemigrations
 python manage.py migrate
