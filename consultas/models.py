@@ -20,6 +20,7 @@ class Donation(models.Model):
     lastName = models.CharField(max_length=100)
     card = models.CharField(max_length=50)
     celphone = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
     tipe_donation = models.CharField(max_length=20 , choices=DONATION_CHOICES)
     tipe_user = models.CharField(max_length=50, choices=USER_CHOICES)
 
