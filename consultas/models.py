@@ -27,7 +27,6 @@ class Donation(models.Model):
     def __str__(self):
         return self.name
 
-# Definir un receptor para la señal de creación de Donation
 @receiver(post_save, sender=Donation)
 def donation_created(sender, instance, created, **kwargs):
     print('creando')
@@ -41,7 +40,6 @@ def donation_created(sender, instance, created, **kwargs):
             }
         )
 
-# Definir un receptor para la señal de eliminación de Donation
 @receiver(post_delete, sender=Donation)
 def donation_deleted(sender, instance, **kwargs):
     print('eliminando')

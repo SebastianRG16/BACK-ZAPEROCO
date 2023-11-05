@@ -179,6 +179,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # cors authorizathion
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173"
+    "https://zaperoco-8617.onrender.com"
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
